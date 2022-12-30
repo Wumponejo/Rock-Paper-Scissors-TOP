@@ -4,28 +4,89 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width">
     <tittle></tittle>
+    <style>
+
+        h1{
+            display: flex;
+            justify-content:center;
+            color: lightgreen;
+        }
+    </style>
     </head>
 
     <body>
-        <script>
-           
-    
-           
-           function getComputerChoice(){
-            
-            let cas = Math.floor(Math.random()*3);
-           
-            if (cas < 1 ){
-                alert("rock");
-            } else if (cas > 1){
-                alert("paper");
+        
+        <h1> <strong> Rock, Paper Scissors Game</strong></h1>
+
+    <script>
+         
+         function getComputerChoice(){
+            var computerChoice = Math.floor(Math.random()*3);
+            if (computerChoice < 1 ){
+                return("Computer Chooses Rock,");
+            } else if (computerChoice > 1){
+                return("Computer Chooses Paper,");
             } else {
-                alert("scissors");
+                return("Computer Chooses Scissors,");
+            } }
+
+        let playerInp = function getPlayerChoice(){
+            let Choice = window.prompt("What do you select: Rock, Paper or Scissors",).toLowerCase();
+            if (Choice ==="rock" || Choice === "r"){
+                return("Player Chooses Rock");
+            } else if (Choice ==="scissors" || Choice === "s"){
+                return("Player Chooses Scissors");
+            } else if (Choice ==="paper" || Choice ==="p"){
+                return("Player Chooses Paper");
+            } else {
+                return("Try again yo");
             }
            }
-           function  add7(number){
-         return number + 7
+        
+
+        function playround(){
+            
+        const playerSelection = playerInp();
+        console.log(playerSelection)
+
+        const computerSelection = getComputerChoice();
+        console.log(computerSelection)
+           let x = computerSelection + playerSelection;
+           if (x =="Computer Chooses Rock,Player Chooses Rock"){
+           return("Computer Chooses Rock, so the Player: Draw");
+           } else if (x =="Computer Chooses Rock,Player Chooses Scissors"){
+            return("Computer Chooses Rock, Player makes it's way out with Scissors: Computer Wins,Player Loses");
+           } else if (x =="Computer Chooses Rock,Player Chooses Paper"){
+            return("Computer Chooses Rock,Player relies on Paper: Player Wins, Computer Loses");
+           } else if (x =="Computer Chooses Paper,Player Chooses Rock"){
+            return("Computer Chooses Paper, Player went for Rock: Computer Wins, Player Loses");
+           } else if (x =="Computer Chooses Paper,Player Chooses Scissors"){
+            return("Computer Chooses Paper, Player selected Scissors: Player Wins, Computer loses");
+           } else if (x =="Computer Chooses Paper,Player Chooses Paper"){
+            return("Computer Chooses Paper, Player does the same: Draw");
+           } else if (x =="Computer Chooses Scissors,Player Chooses Scissors"){
+            return("Computer Chooses Scissors, Player does the same: Draw");
+           } else if (x =="Computer Chooses Scissors,Player Chooses Paper"){
+            return("Computer Chooses Scissors, Player picks Paper: Computer Wins, Player Loses");
+           } else if (x =="Computer Chooses Scissors,Player Chooses Rock"){ 
+            return("Computer Chooses Scissors, Player goes for Rock: Player Wins, Computer Loses");           
+           } else {
+            return("That did not count");
+           }
         }
-        </script>
+
+     
+        
+
+         
+        function game(){
+            for (i=0;i<=5;i++)
+{ 
+    playround();
+}
+        }
+        
+
+    </script>
 
     </body>
