@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <tittle></tittle>
+    <style>
+
+        h1{
+            display: flex;
+            justify-content:center;
+            color: lightgreen;
+        }
+
+    </style>
+    </head>
+
+    <body>
+        
+        <h1> <strong> Rock, Paper Scissors Game</strong></h1>
+
+    <script>
+         
+    function getComputerChoice(){
+
+            var computerChoice = Math.floor(Math.random()*3);
+            if (computerChoice < 1 ){
+                return("Computer Chooses Rock,");
+            } else if (computerChoice > 1){
+                return("Computer Chooses Paper,");
+            } else {
+                return("Computer Chooses Scissors,");
+            }
+        }
+
+
+    let playerInp = function getPlayerChoice(){
+
+            let Choice = window.prompt("What do you select: Rock, Paper or Scissors",).toLowerCase();
+            if (Choice ==="rock" || Choice === "r"){
+                return("Player Chooses Rock");
+            } else if (Choice ==="scissors" || Choice === "s"){
+                return("Player Chooses Scissors");
+            } else if (Choice ==="paper" || Choice ==="p"){
+                return("Player Chooses Paper");
+            } else {
+                return("no selection");
+            }
+           }
+        
+
+    let counterComp = 0;
+    let counterPlyr = 0;
+       
+    
+    function playRound(){
+            
+        const playerSelection = playerInp();
+        console.log(playerSelection)
+
+        const computerSelection = getComputerChoice();
+        console.log(computerSelection)
+        
+       let Score= "The Score is: "
+
+
+           let x = computerSelection + playerSelection;
+           if (x == "Computer Chooses Rock,Player Chooses Rock"){
+        
+           console.log("Draw");
+           counterComp++;
+           counterPlyr++;
+           console.log(Score + "Computer = "+ counterComp,"Player = "+ counterPlyr);
+           return("Round ends in a Draw");
+           } else if (x == "Computer Chooses Rock,Player Chooses Scissors"){
+           
+            counterComp++;
+           console.log("Computer Wins,Player Loses");
+           console.log(Score + "Computer = "+ counterComp,"Player = "+ counterPlyr);
+           return("Computer wins the round");
+           } else if (x == "Computer Chooses Rock,Player Chooses Paper"){
+        
+            console.log ("Player Wins, Computer Loses");
+            counterPlyr++;
+            console.log(Score + "Computer = "+ counterComp,"Player = "+ counterPlyr);
+            return("Player wins the round");
+           } else if (x == "Computer Chooses Paper,Player Chooses Rock"){
+         
+            console.log ("Computer Wins, Player Loses");
+           counterComp++;
+           console.log(Score + "Computer = "+ counterComp,"Player = "+ counterPlyr);
+           return("Computer wins the round");
+           } else if (x == "Computer Chooses Paper,Player Chooses Scissors"){
+         
+            console.log ("Player Wins, Computer loses");
+            counterPlyr++;
+            console.log(Score + "Computer = "+ counterComp,"Player = "+ counterPlyr);
+            return("Player wins the round");
+           } else if (x == "Computer Chooses Paper,Player Chooses Paper"){
+          
+           console.log ("Draw");
+           counterComp++;
+           counterPlyr++;
+           console.log(Score + "Computer = "+ counterComp,"Player = "+ counterPlyr);
+           return("Round ends in a Draw");
+           } else if (x == "Computer Chooses Scissors,Player Chooses Scissors"){
+     
+            console.log ("Draw");
+            counterComp++;
+           counterPlyr++;
+           console.log(Score + "Computer = "+ counterComp,"Player = "+ counterPlyr);
+           return("Round ends in a Draw");
+           } else if (x == "Computer Chooses Scissors,Player Chooses Paper"){
+        
+            console.log ("Computer Wins, Player Loses");
+           counterComp++;
+           console.log(Score + "Computer = "+ counterComp,"Player = "+ counterPlyr);
+           return("Computer wins the round");
+           } else if (x == "Computer Chooses Scissors,Player Chooses Rock"){ 
+        
+            console.log ("Player Wins, Computer Loses");   
+            counterPlyr++;
+            console.log(Score + "Computer = "+ counterComp,"Player = "+ counterPlyr);
+            return("Player wins the Round");
+           } else if (x == "Computer Chooses Scissors,no selection") {
+        
+            console.log ("Computer wins, Player Loses");
+            counterComp++;
+            console.log(Score + "Computer = "+ counterComp,"Player = "+ counterPlyr);
+            return("Computer wins the round");
+           } else if (x == "Computer Chooses Paper,no selection") {
+
+            console.log ("Computer wins, Player Loses");
+            counterComp++;
+            console.log(Score + "Computer = "+ counterComp,"Player = "+ counterPlyr);
+            return("Computer wins the round");
+            } else if (x == "Computer Chooses Rock,no selection") {
+
+                console.log ("Computer wins, Player Loses");
+                counterComp++;
+                console.log(Score + "Computer = "+ counterComp,"Player = "+ counterPlyr);
+                return("Computer wins the round");
+            } else {
+
+                console.log ("some mistake ocurred, play's not working");
+ 
+            }          
+          
+            
+            }
+            function Game() {
+                
+                for (i = 0;i <= 5;i++){
+
+       
+                  playRound();
+                  if (counterComp >= 3 && counterPlyr < counterComp){
+                  return("Computer wins and you are free");
+                  break;
+               } else if (counterComp < counterPlyr && counterPlyr >= 3){
+                   return("Player wins the game");
+                   break;
+               } else if(counterComp >= 3 && counterPlyr == counterComp){
+                   return("it's a draw and that's wonderful")
+                   break;
+               }
+               }
+           }
+        
+
+        
+
+        
+            
+       
+    </script>
+
+    </body>
